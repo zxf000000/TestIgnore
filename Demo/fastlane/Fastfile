@@ -1,0 +1,33 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+
+# lane :sign do
+# 	sigh(username: "2194597273@qq.com",
+# 		app_identifier: "rocks.zhouxiaofei.Demo")
+
+#   end
+
+lane :package do
+    # add actions here: https://docs.fastlane.tools/actions
+	build_app(scheme:"Demo",export_method: "development", output_directory: "./fastlane/package",configuration: "Release")
+	#pgyer(api_key:"735d7f189f59192adedcff3a6ee8eabe",user_key:"dd22739c9434f7880045310e4a37c59d")
+	firim(firim_api_token: "23f743cdfe6a61125a712115daa6b028")
+  end
+end
